@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahdi Bayanloo — Software Engineer</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Software Engineer & M.Sc. CS in Berlin. Machine learning, IoT, and clean, reliable systems." />
+  <style>
+    :root{
+      --bg:#0c1020; --panel:#111735; --card:#151d42;
+      --text:#e9eef9; --muted:#a9b4cf; --accent:#6aa5ff;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.3);
+      --sidebar-w: 260px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    img{max-width:100%;display:block;border-radius:14px}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .sidebar{
+      position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);
+      background:rgba(12,16,32,.85);backdrop-filter:blur(10px);
+      border-right:1px solid rgba(255,255,255,.06);
+      padding:18px 16px;display:flex;flex-direction:column;gap:18px;z-index:20
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{height:56px;width:auto;filter:brightness(0) invert(1) contrast(1.1)}
+    .side-nav{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+    .side-nav a{color:var(--text);opacity:.9;padding:10px 12px;border-radius:10px;font-weight:600}
+    .side-nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
+    .hero,.section,.site-footer{margin-left:calc(var(--sidebar-w) + 12px)}
+    .hero{padding:72px 0;background:linear-gradient(160deg, rgba(106,165,255,.12), rgba(21,29,66,.2) 60%)}
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .headline{font-size:44px;line-height:1.1;margin:0 0 12px}
+    .lede{color:var(--muted);font-size:18px;margin:0 0 20px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+    .btn:hover{border-color:rgba(255,255,255,.28)}
+    .btn-primary{background:var(--accent);color:#0b1020;border:none;box-shadow:var(--shadow)}
+    .hero-card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+    .quick-facts{list-style:none;margin:0;padding:0}
+    .quick-facts li{padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:18px}
+    .quick-facts li:last-child{border-bottom:none}
+    .quick-facts span{display:inline-block;min-width:160px;color:var(--muted);font-weight:700}
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .stat{background:#0e1430;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;text-align:center}
+    .stat-num{font-size:30px;font-weight:800;line-height:1}
+    .stat-lab{color:var(--muted);font-size:13px;margin-top:6px}
+    .section{padding:72px 0}
+    .section h2{margin:0 0 16px;font-size:28px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chips span{background:#0e1430;border:1px solid rgba(255,255,255,.08);padding:8px 12px;border-radius:999px}
+    .timeline{display:grid;gap:16px;margin-top:8px}
+    .timeline-item{background:var(--panel);border-radius:var(--radius);padding:16px;border:1px solid rgba(255,255,255,.06)}
+    .ti-meta{color:var(--muted);font-size:14px}
+    .ti-points{margin:10px 0 0 18px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+    .card .card-body{padding:12px 4px}
+    .card h3{margin:6px 0 6px;font-size:18px}
+    .card p{color:var(--muted);margin:0}
+    .vw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .vw-item{margin:0;padding:0;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+    .vw-item img{width:100%;height:220px;object-fit:cover}
+    .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:10px}
+    .cert-card{background:var(--card);border-radius:16px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+    .cert-img-wrap{position:relative;border-radius:12px;overflow:hidden}
+    .cert-img-wrap img{width:100%;height:260px;object-fit:cover;transform:scale(1);transition:transform .25s ease}
+    .cert-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, transparent, rgba(0,0,0,.22));pointer-events:none}
+    .cert-card:hover .cert-img-wrap img{transform:scale(1.03)}
+    .cert-badge{position:absolute;left:10px;top:10px;background:linear-gradient(135deg,#7cd2ff,#5ea2ff);color:#001028;font-weight:800;border-radius:999px;padding:6px 10px;font-size:12px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+    .cert-title{margin:6px 4px 0;font-size:18px}
+    .cert-full{max-width:min(96vw,1100px);max-height:82vh;border-radius:12px;display:block}
+    .vw-dialog::backdrop{background:rgba(0,0,0,.6)}
+    .vw-dialog[open]{border:none;border-radius:16px;padding:0;background:transparent}
+    .vw-modal{background:var(--card);border-radius:16px;padding:16px;max-width:min(92vw, 1100px);max-height:84vh;overflow:auto;box-shadow:var(--shadow)}
+    .vw-close{position:sticky;top:0;margin-left:auto;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.2);color:#fff;width:40px;height:40px;border-radius:999px;cursor:pointer;font-size:22px;line-height:1}
+    .proj-embed-wrap iframe{border-radius:12px}
+    .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .contact-form{display:grid;gap:10px}
+    .contact-form input,.contact-form textarea{background:#0e1430;border:1px solid rgba(255,255,255,.08);color:#fff;padding:10px;border-radius:12px}
+    .contact-form button{justify-self:start}
+    .site-footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.06);background:#0b1020;color:var(--muted);text-align:center}
+    @media (max-width:1024px){ .hero-inner{grid-template-columns:1fr} }
+    @media (max-width:940px){
+      .grid-2{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .vw-grid{grid-template-columns:1fr 1fr}
+      .cert-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .headline{font-size:32px}
+      .cards{grid-template-columns:1fr}
+      .vw-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a id="home"></a>
+  <aside class="sidebar">
+    <a class="brand" href="#home"><img src="assets/img/Asset 3@4x-8.png" alt="MB logo" class="brand-logo"></a>
+    <nav class="side-nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#voluntary">Voluntary Work</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1 class="headline">Software Engineer & M.Sc. CS in Berlin</h1>
+        <p class="lede">I build robust engineering systems from embedded devices to ML pipelines. I care about clean code, thoughtful abstractions, and measurable impact.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn" href="https://www.linkedin.com/in/mahdi-bayanloo-2b7317215/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/mahdibayanloo" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <ul class="quick-facts">
+          <li><span>Focus</span> ML Engineering, IoT</li>
+          <li><span>Languages</span> Python, C/C++, Java</li>
+          <li><span>Tools</span> TensorFlow, Docker, Git, Jenkins</li>
+          <li><span>Currently</span> M.Sc. CS @ FU/TU Berlin</li>
+        </ul>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">5+</div><div class="stat-lab">Years coding</div></div>
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-lab">Projects</div></div>
+          <div class="stat"><div class="stat-num">1st</div><div class="stat-lab">B.Sc. rank</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>About</h2>
+        <p>I’m a software engineer and graduate student in Berlin. Recently I’ve worked on predictive ML pipelines (TensorFlow/Keras) and IoT validation tooling for Ethernet performance. Previously, I led robotics activities at the University of Zanjan and taught OOP in C++/Java/Python.</p>
+      </div>
+      <div class="card">
+        <h3>Core Skills</h3>
+        <div class="chips">
+          <span>Python</span><span>C++</span><span>Java</span><span>OOP</span><span>TensorFlow</span><span>CUDA</span><span>SQL</span>
+          <span>Linux</span><span>Git</span><span>Docker</span><span>Jenkins</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="experience" class="section">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="ti-meta">Apr 2025 – Present • Berlin</div>
+          <h3>Zuse Institute Berlin (ZIB) — Research Assistant</h3>
+          <ul class="ti-points">
+            <li>Built Python/Julia ML pipeline to predict chemical properties from encoded sequences.</li>
+            <li>Applied PCA for high-dimensional outputs and improved evaluation throughput.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <div class="ti-meta">May 2025 – Present • Berlin</div>
+          <h3>Perinet GmbH — IoT Engineer</h3>
+          <ul class="ti-points">
+            <li>Designed a web-based vector analyzer to validate 100 Mbps Ethernet tests.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <div class="ti-meta">Dec 2022 – Dec 2023 • Zanjan</div>
+          <h3>University of Zanjan — Head of Robotics Association</h3>
+          <ul class="ti-points">
+            <li>Led robotics workshops; used Raspberry Pi (Debian) in industrial projects.</li>
+            <li>Optimized STM32 logic code (~15% perf improvement).</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <div class="ti-meta">Jun 2020 – Jul 2022 • Zanjan</div>
+          <h3>University of Zanjan — Teaching Assistant</h3>
+          <ul class="ti-points">
+            <li>Assisted courses in C++, Java, and Python (OOP) for B.Sc. students.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Selected Projects</h2>
+      <div class="cards">
+        <article class="card project-card" data-href="https://github.com/MahdiBayanloo/LLM-as-a-Judge">
+          <img src="assets/img/project_1.jpg" alt="LLM as a Judge" loading="lazy" />
+          <div class="card-body"><h3>LLM as a Judge</h3><p>Researched AI robustness, ML algorithms, and exploit detection in
+(LLMs) using Python and Jupyter Notebook. Developed strategies to
+optimize essay submissions, maximizing disagreement among LLM
+judges to enhance model evaluation and performance</p></div>
+        </article>
+        <article class="card project-card" data-embed="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7279625656865345536?compact=1">
+          <img src="assets/img/project_2.jpg" alt="Jenkins Pipeline" loading="lazy" />
+          <div class="card-body"><h3>Jenkins Pipeline (Holoplot)</h3><p>Local/remote CI pipelines; Groovy tests with Gradle (LinkedIn video).</p></div>
+        </article>
+        <article class="card project-card" data-embed="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7101179505246879744?compact=1">
+          <img src="assets/img/project_3.jpg" alt="ESP32 Face Recognition Door" loading="lazy" />
+          <div class="card-body"><h3>ESP32 Face Recognition Door</h3><p>Real-time face recognition on ESP32 with OpenCV/C++ (LinkedIn video).</p></div>
+        </article>
+      </div>
+    </div>
+    <dialog id="projLightbox" class="vw-dialog">
+      <div class="vw-modal">
+        <button class="vw-close" aria-label="Close">×</button>
+        <div class="vw-content proj-embed-wrap"></div>
+      </div>
+    </dialog>
+  </section>
+  <section id="voluntary" class="section">
+    <div class="container">
+      <h2>Voluntary Work</h2>
+      <p class="muted">The grand pathfinder robot competition — training and building autonomous robots in a multi-person team.</p>
+      <div class="vw-grid" id="vwGrid"></div>
+      <div class="vol-actions"><button class="btn" id="vwOpenAll">View all photos</button></div>
+    </div>
+    <dialog id="volModal" class="vw-dialog">
+      <div class="vw-modal">
+        <button class="vw-close" aria-label="Close">×</button>
+        <div class="vw-scroller" id="vwScroll"></div>
+      </div>
+    </dialog>
+  </section>
+  <section id="certs" class="section">
+    <div class="container">
+      <h2>Certifications</h2>
+      <p class="muted">NVIDIA certificates – click to view in full.</p>
+      <div class="cert-grid" id="certGrid"></div>
+    </div>
+    <dialog id="certLightbox" class="vw-dialog">
+      <div class="vw-modal">
+        <button class="vw-close" aria-label="Close">×</button>
+        <img id="certFull" class="cert-full" alt="Certificate full view"/>
+      </div>
+    </dialog>
+  </section>
+  <section id="contact" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>Contact</h2>
+        <ul class="contact-list">
+          <li><strong>Berlin, Germany</strong></li>
+          <li><a href="tel:+4915754849573">+49 1575 4849573</a></li>
+          <li><a href="mailto:mahdibayanloo1379@gmail.com">mahdibayanloo1379@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/mahdi-bayanloo-2b7317215/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/mahdibayanloo" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Send a message</h3>
+        <form action="https://formspree.io/f/myyryzrw" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="5" placeholder="Your message"></textarea>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="container"><span>© 2025 Mahdi Bayanloo</span></div></footer>
+  <script>
+    const VOL_IMAGES = ['assets/img/volWork_1.jpg','assets/img/volWork_2.jpg','assets/img/volWork_3.jpg'];
+    const CERT_IMAGES = ['assets/img/cert_nvidia_1.jpg','assets/img/cert_nvidia_2.jpg'];
+    (function(){
+      const dlg = document.getElementById('projLightbox');
+      const wrap = dlg.querySelector('.proj-embed-wrap');
+      function openWith(src){
+        wrap.innerHTML='';
+        if(src){
+          const iframe = document.createElement('iframe');
+          iframe.setAttribute('src', src);
+          iframe.setAttribute('width','100%');
+          iframe.setAttribute('height','640');
+          iframe.setAttribute('frameborder','0');
+          iframe.setAttribute('allow','autoplay; fullscreen');
+          iframe.setAttribute('allowfullscreen','');
+          wrap.appendChild(iframe);
+        }
+        if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','open');
+      }
+      function close(){ wrap.innerHTML=''; if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+      dlg.querySelector('.vw-close').addEventListener('click', close);
+      dlg.addEventListener('click', (e)=>{ if(e.target===dlg) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && dlg.hasAttribute('open')) close(); });
+      document.querySelectorAll('.project-card').forEach(card=>{
+        card.addEventListener('click',()=>{
+          const embed = card.getAttribute('data-embed');
+          const href = card.getAttribute('data-href');
+          if(embed) openWith(embed); else if(href) window.open(href,'_blank');
+        });
+      });
+    })();
+    (function(){
+      const grid = document.getElementById('vwGrid');
+      const scroller = document.getElementById('vwScroll');
+      const dlg = document.getElementById('volModal');
+      document.getElementById('vwOpenAll').addEventListener('click',()=>{ if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','open'); });
+      dlg.querySelector('.vw-close').addEventListener('click',()=>{ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); });
+      dlg.addEventListener('click',(e)=>{ if(e.target===dlg){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); } });
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && dlg.hasAttribute('open')){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); } });
+      function makeThumb(src){
+        const fig = document.createElement('figure'); fig.className='vw-item';
+        const img = document.createElement('img'); img.loading='lazy'; img.src=src; img.alt='Voluntary work';
+        fig.appendChild(img); return fig;
+      }
+      function makeFull(src){
+        const img = document.createElement('img'); img.src=src; img.alt='Voluntary photo'; img.style.width='100%'; img.style.borderRadius='12px';
+        return img;
+      }
+      VOL_IMAGES.forEach(src=>{ grid.appendChild(makeThumb(src)); scroller.appendChild(makeFull(src)); });
+    })();
+    (function(){
+      const grid = document.getElementById('certGrid');
+      const dlg = document.getElementById('certLightbox');
+      const full = document.getElementById('certFull');
+      function card(src){
+        const article = document.createElement('article'); article.className='cert-card'; article.setAttribute('data-img', src);
+        const wrap = document.createElement('div'); wrap.className='cert-img-wrap';
+        const img = document.createElement('img'); img.src=src; img.alt='Certificate'; img.loading='lazy';
+        const badge = document.createElement('span'); badge.className='cert-badge'; badge.textContent='NVIDIA';
+        const h3 = document.createElement('h3'); h3.className='cert-title'; h3.textContent='NVIDIA Certificate';
+        const btn = document.createElement('button'); btn.className='btn btn-primary cert-view'; btn.textContent='View';
+        wrap.appendChild(img); wrap.appendChild(badge);
+        article.appendChild(wrap); article.appendChild(h3); article.appendChild(btn);
+        btn.addEventListener('click',()=>openWith(src)); img.addEventListener('click',()=>openWith(src));
+        return article;
+      }
+      function openWith(src){ full.src=src; full.alt='Certificate'; if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','open'); }
+      function close(){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+      dlg.querySelector('.vw-close').addEventListener('click', close);
+      dlg.addEventListener('click',(e)=>{ if(e.target===dlg) close(); });
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && dlg.hasAttribute('open')) close(); });
+      CERT_IMAGES.forEach(src=> grid.appendChild(card(src)));
+    })();
+  </script>
+</body>
+</html>

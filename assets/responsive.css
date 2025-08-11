@@ -1,0 +1,120 @@
+/* === Responsive Enhancements (added by assistant) === */
+:root{
+  --container-max: 1200px;
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+  --text: #111;
+  --muted: #666;
+  --bg: #fff;
+}
+
+/* Reset-ish */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{height:100%}
+body{margin:0; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+
+/* Type scales */
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,sans-serif; line-height:1.6; font-size:clamp(15px, 1.6vw, 18px)}
+h1{font-size:clamp(28px, 4.2vw, 44px); line-height:1.15; margin:.5em 0}
+h2{font-size:clamp(22px, 3.2vw, 32px); line-height:1.2; margin:.8em 0 .4em}
+h3{font-size:clamp(18px, 2.4vw, 26px)}
+
+/* Containers */
+.container, .wrap, .wrapper, main, .content{
+  max-width:var(--container-max);
+  margin-inline:auto;
+  padding-inline:clamp(var(--space-2), 3vw, var(--space-4));
+}
+
+/* Media: images & embeds */
+img, video, canvas, svg, iframe{max-width:100%; height:auto; display:block}
+figure{margin:0;}
+
+/* Buttons */
+button, .button, .btn{
+  display:inline-flex; align-items:center; gap:.6em;
+  padding:.6em 1em; border-radius:999px; border:1px solid rgba(0,0,0,.08);
+  background:#fff; box-shadow:var(--shadow); cursor:pointer;
+}
+button:focus-visible, .button:focus-visible, .btn:focus-visible{outline:2px solid #000; outline-offset:2px}
+
+/* Cards & sections */
+.card{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:var(--space-3)}
+
+/* Grids that collapse */
+.grid, .cards, .gallery{
+  display:grid; gap:clamp(var(--space-2), 2vw, var(--space-4));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+/* Tables */
+table{width:100%; border-collapse:collapse}
+th, td{padding:.7rem .8rem; border-bottom:1px solid rgba(0,0,0,.08)}
+th{text-align:left; font-weight:600}
+
+/* Forms */
+input, textarea, select{
+  width:100%; padding:.7rem .9rem; border-radius:12px; border:1px solid rgba(0,0,0,.15);
+}
+
+/* Sidebar patterns */
+.sidebar, .side-bar{
+  position:sticky; top:0; align-self:start; height:100dvh; overflow:auto;
+}
+
+/* Mobile nav toggle (hamburger) */
+.mobile-nav-toggle{
+  position:fixed; right:clamp(10px, 3vw, 24px); top:clamp(10px, 3vw, 24px); z-index:1001;
+  width:44px; height:44px; border-radius:12px; border:1px solid rgba(0,0,0,.1); background:#fff; box-shadow:var(--shadow);
+  display:none; place-items:center; font-size:22px; user-select:none;
+}
+
+/* Overlay when menu open */
+.mobile-overlay{display:none; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:1000;}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px){
+  .sidebar, .side-bar{min-width:280px}
+}
+
+@media (max-width: 900px){
+  /* Convert sidebar to drawer */
+  .mobile-nav-toggle{display:grid}
+  .sidebar, .side-bar{
+    position:fixed; inset:0 0 0 auto; width:min(80vw, 340px);
+    transform:translateX(100%);
+    transition:transform .35s ease;
+    background:#fff; box-shadow:-20px 0 60px rgba(0,0,0,.2); z-index:1002; padding:var(--space-3);
+  }
+  html.mobile-menu-open .sidebar,
+  html.mobile-menu-open .side-bar{ transform:translateX(0) }
+  .mobile-overlay{display:block}
+  html.mobile-menu-open{overflow:hidden}
+  
+  /* Generic layouts */
+  .grid-2, .two-col, .layout-2{
+    display:grid; grid-template-columns:1fr; gap:var(--space-3);
+  }
+  .hero{padding-block:clamp(2rem, 6vw, 4rem)}
+}
+
+@media (max-width: 520px){
+  .hide-on-mobile{display:none!important}
+  .btn{padding:.55em .9em}
+}
+
+/* Utilities */
+.flex{display:flex; gap:1rem}
+.flex-col{flex-direction:column}
+.center{align-items:center; justify-content:center}
+.justify-between{justify-content:space-between}
+.rounded-2xl{border-radius:var(--radius)}
+.shadow{box-shadow:var(--shadow)}
+.m-0{margin:0} .mt-1{margin-top:.25rem} .mt-2{margin-top:.5rem} .mt-3{margin-top:1rem}
+.p-0{padding:0} .p-2{padding:.5rem} .p-3{padding:1rem} .p-4{padding:1.5rem}
+/* === End Responsive Enhancements === */
