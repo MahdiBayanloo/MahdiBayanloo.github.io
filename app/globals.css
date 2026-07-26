@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ── Telemetry × Minimal design tokens ─────────────────────────────── */
+:root {
+  --bg: #0a0b0d;
+  --surface: #111318;
+  --line: #23262e;
+  --fg: #edeef2;
+  --dim: #9ba1ad;
+  --signal: #4ade80;
+  --amber: #f5a623;
+  --grid: rgba(255, 255, 255, 0.035);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-dim: var(--dim);
+  --color-signal: var(--signal);
+  --color-amber: var(--amber);
+
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Motifs ─────────────────────────────────────────────────────────── */
+/* Faint blueprint grid for hero / section backdrops */
+.bg-blueprint {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Mono measurement label, e.g. `01 / WORK` — color composes via text-* utilities */
+.tag-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Pulsing status dot (amber = current role, green = live) */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--signal);
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+.status-dot--amber {
+  background: var(--amber);
+}
+
+/* Vehicle reveal — data-flow animations (killed globally by reduced-motion) */
+.v-dash {
+  animation: v-dash-flow 1.1s linear infinite;
+}
+.v-dash-slow {
+  animation: v-dash-flow 2.2s linear infinite;
+}
+.v-pulse {
+  animation: v-fade-pulse 2.8s ease-in-out infinite;
+}
+.v-blink {
+  animation: v-fade-pulse 1.4s ease-in-out infinite;
+}
+@keyframes v-dash-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+@keyframes v-fade-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 0%, transparent);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
