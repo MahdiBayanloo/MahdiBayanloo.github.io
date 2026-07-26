@@ -126,11 +126,11 @@ export const experience: Experience[] = [
     tags: ["Firmware", "Microcontrollers", "Test Scripts"],
   },
   {
-    company: "TU Berlin / University of Zanjan",
+    company: "University of Zanjan",
     title: "Teaching Assistant — Computer Programming",
     start: "Feb 2020",
     end: "Jun 2021",
-    location: "Berlin / Zanjan",
+    location: "Zanjan",
     bullets: [
       "Taught Python, C++, and Java with a focus on OOP over 4 semesters; mentored students in debugging and software-engineering practices.",
     ],
