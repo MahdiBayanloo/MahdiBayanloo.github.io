@@ -140,6 +140,20 @@ export const experience: Experience[] = [
 
 export const projects: Project[] = [
   {
+    slug: "iot-demo-kit",
+    name: "Plug-and-Play IoT Demonstration Kit",
+    kicker: "Industrial IoT · 2026",
+    problem:
+      "Turn a complex industrial IoT system into a plug-and-play, customer-facing demo experience.",
+    built:
+      "A compact demonstration kit integrating sensors, industrial controllers, networking, and power management in a single enclosure — waterproof panel-mounted connectivity, integrated wireless access for field demonstrations, and clean cable management for serviceability.",
+    stack: ["IoT", "Embedded Systems", "Industrial Automation", "Networking", "Enclosure Design"],
+    link: {
+      label: "View on LinkedIn",
+      href: "https://www.linkedin.com/feed/update/urn:li:activity:7469749439654486016/",
+    },
+  },
+  {
     slug: "flow-matching-vs-ddpm",
     name: "Flow Matching vs. Denoising Diffusion (DDPM)",
     kicker: "FU Berlin course project · 2026",
