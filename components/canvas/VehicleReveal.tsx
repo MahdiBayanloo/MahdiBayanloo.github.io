@@ -12,23 +12,24 @@ import {
 
 /**
  * The signature centerpiece: a conceptual software-defined supercar.
- * Closed = low-wedge supersport silhouette. On scroll or hover the body
- * shell lifts into a holographic wireframe revealing the vehicle's software
- * architecture: ECU network, central compute, OTA uplink, sensor array,
- * battery platform, software stack.
+ * Proportions measured from real supercar side-view references
+ * (L/H ≈ 4.4, roof peak at ~59% of length, tight round wheel arches,
+ * shoulder-to-rocker side intake). Original design — no production car traced.
  *
- * Pure SVG — no 3D assets. Original fictional design; no production car copied.
+ * Closed = low-wedge silhouette. On scroll or hover the shell lifts into a
+ * holographic wireframe revealing ECU network, central compute, OTA uplink,
+ * sensors, battery platform, and the software stack.
  */
 
-const BODY = `M 92 292 C 62 290 52 284 52 276 C 52 264 66 256 92 250 C 118 245 148 241 182 237 C 222 231 258 226 288 221 C 312 213 340 191 382 176 C 412 167 446 163 478 163 C 510 163 542 170 572 182 C 606 196 640 206 676 212 C 712 216 758 218 786 220 L 800 216 L 806 222 C 810 240 806 258 796 268 C 788 280 776 288 758 292 A 56 56 0 0 0 642 292 L 243 292 A 56 56 0 0 0 127 292 Z`;
+const BODY = `M 96 310 C 62 308 50 300 48 290 C 47 279 52 268 66 263 C 120 252 240 228 365 200 C 400 189 450 170 502 162 C 520 160 540 161 555 164 C 575 174 595 186 615 192 C 645 198 665 196 690 189 C 715 183 745 186 765 194 C 800 199 835 202 851 207 L 856 212 C 858 240 856 268 848 287 C 840 296 828 302 812 306 L 759 310 A 58 58 0 1 0 647 310 L 280 310 A 58 58 0 1 0 168 310 Z`;
 
-const GLASS = `M 318 214 C 342 199 370 183 404 174 C 430 167 460 165 480 165 C 508 165 534 171 560 181 C 576 187 588 194 596 200 C 540 194 470 194 420 199 C 380 203 344 209 318 214 Z`;
+const GLASS = `M 376 205 C 415 189 462 172 506 167 L 550 169 C 568 178 584 188 600 196 C 545 202 460 208 376 205 Z`;
 
 const ECUS: Array<[number, string]> = [
-  [298, "ECU-1"],
-  [350, "ECU-2"],
-  [514, "ECU-3"],
-  [558, "ECU-4"],
+  [296, "ECU-1"],
+  [348, "ECU-2"],
+  [512, "ECU-3"],
+  [556, "ECU-4"],
 ];
 
 const STACK: Array<[string, number, string]> = [
@@ -42,10 +43,10 @@ function Wheel({ cx }: { cx: number }) {
   return (
     <g>
       <circle cx={cx} cy={CY} r={50} fill="#14171d" stroke="#343a45" strokeWidth={2.5} />
-      <circle cx={cx} cy={CY} r={39} fill="#0c0e12" />
+      <circle cx={cx} cy={CY} r={41} fill="#0c0e12" />
       <circle cx={cx} cy={CY} r={20} fill="none" stroke="#1c2026" strokeWidth={5} />
       <path
-        d={`M ${cx + 18} ${CY + 27} A 32 32 0 0 0 ${cx + 31} ${CY + 9}`}
+        d={`M ${cx + 19} ${CY + 28} A 34 34 0 0 0 ${cx + 33} ${CY + 9}`}
         fill="none"
         stroke="#4ade80"
         strokeWidth={5}
@@ -53,19 +54,19 @@ function Wheel({ cx }: { cx: number }) {
       />
       {Array.from({ length: 5 }, (_, i) => {
         const a = ((i * 72 - 90) * Math.PI) / 180;
-        return [a - 0.15, a + 0.15].map((s, j) => (
+        return [a - 0.14, a + 0.14].map((s, j) => (
           <line
             key={`${i}-${j}`}
             x1={cx + 8 * Math.cos(s)}
             y1={CY + 8 * Math.sin(s)}
-            x2={cx + 34 * Math.cos(s)}
-            y2={CY + 34 * Math.sin(s)}
+            x2={cx + 36 * Math.cos(s)}
+            y2={CY + 36 * Math.sin(s)}
             stroke="#5a6272"
-            strokeWidth={2.6}
+            strokeWidth={2.4}
           />
         ));
       })}
-      <circle cx={cx} cy={CY} r={38} fill="none" stroke="#6a7383" strokeWidth={2.5} />
+      <circle cx={cx} cy={CY} r={40} fill="none" stroke="#6a7383" strokeWidth={2.5} />
       <circle cx={cx} cy={CY} r={6} fill="#191c22" stroke="#6a7383" strokeWidth={1.5} />
     </g>
   );
@@ -90,7 +91,7 @@ export function VehicleReveal({ className = "" }: { className?: string }) {
   const shellY = useTransform(p, [0, 1], [0, -46]);
   const shellOp = useTransform(p, [0, 1], [1, 0.08]);
   const wireOp = useTransform(p, [0, 1], [0, 0.9]);
-  const glassOp = useTransform(p, [0, 1], [0.35, 0.04]);
+  const glassOp = useTransform(p, [0, 1], [0.4, 0.05]);
   const internalsOp = useTransform(p, [0.15, 0.7], [0, 1]);
   const labelsOp = useTransform(p, [0.55, 0.95], [0, 1]);
   const stackOp = useTransform(p, [0.35, 0.85], [0, 1]);
@@ -143,25 +144,25 @@ export function VehicleReveal({ className = "" }: { className?: string }) {
           </filter>
         </defs>
 
-        <ellipse cx={450} cy={352} rx={340} ry={11} fill="#000" opacity={0.5} />
-        <motion.ellipse cx={450} cy={344} rx={260} ry={6} fill="#4ade80" style={{ opacity: glowOp }} />
+        <ellipse cx={450} cy={352} rx={350} ry={11} fill="#000" opacity={0.5} />
+        <motion.ellipse cx={450} cy={346} rx={270} ry={6} fill="#4ade80" style={{ opacity: glowOp }} />
 
         {/* ===== INTERNALS ===== */}
         <motion.g style={{ opacity: internalsOp }}>
-          <rect x={290} y={300} width={316} height={32} rx={8} fill="#12151c" stroke="#262b34" />
+          <rect x={292} y={302} width={344} height={30} rx={8} fill="#12151c" stroke="#262b34" />
           {Array.from({ length: 8 }, (_, i) => (
             <g key={i}>
-              <rect x={300 + i * 38} y={306} width={30} height={20} rx={3} fill="#161b24" stroke="#2b3140" />
-              <circle cx={315 + i * 38} cy={316} r={2} fill="#4ade80" opacity={0.7} />
+              <rect x={302 + i * 42} y={308} width={32} height={18} rx={3} fill="#161b24" stroke="#2b3140" />
+              <circle cx={318 + i * 42} cy={317} r={2} fill="#4ade80" opacity={0.7} />
             </g>
           ))}
 
           <line
             className="v-dash"
-            x1={296}
-            y1={264}
-            x2={602}
-            y2={264}
+            x1={290}
+            y1={262}
+            x2={640}
+            y2={262}
             stroke="#4ade80"
             strokeWidth={1.6}
             strokeDasharray="7 9"
@@ -181,28 +182,28 @@ export function VehicleReveal({ className = "" }: { className?: string }) {
           ))}
 
           <g filter="url(#v-glowB)">
-            <rect x={406} y={228} width={94} height={52} rx={6} fill="#0d1320" stroke="#5ea2ff" />
+            <rect x={404} y={228} width={94} height={52} rx={6} fill="#0d1320" stroke="#5ea2ff" />
             {Array.from({ length: 3 }, (_, i) => (
-              <line key={i} x1={416} y1={240 + i * 11} x2={490} y2={240 + i * 11} stroke="#33517e" strokeWidth={1.4} />
+              <line key={i} x1={414} y1={240 + i * 11} x2={488} y2={240 + i * 11} stroke="#33517e" strokeWidth={1.4} />
             ))}
-            <circle className="v-blink" cx={490} cy={236} r={2.4} fill="#5ea2ff" />
+            <circle className="v-blink" cx={488} cy={236} r={2.4} fill="#5ea2ff" />
           </g>
 
           {/* roof lidar */}
-          <rect x={440} y={148} width={36} height={10} rx={5} fill="#10141b" stroke="#4ade80" strokeOpacity={0.8} />
-          <path className="v-pulse" d="M 434 136 A 55 55 0 0 1 482 136" fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="3 5" opacity={0.6} />
+          <rect x={508} y={150} width={32} height={10} rx={5} fill="#10141b" stroke="#4ade80" strokeOpacity={0.8} />
+          <path className="v-pulse" d="M 502 138 A 50 50 0 0 1 546 138" fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="3 5" opacity={0.6} />
 
           {/* front radar */}
-          <circle cx={70} cy={266} r={3} fill="#4ade80" />
-          <path className="v-pulse" d="M 52 250 A 26 26 0 0 0 52 282" fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="3 5" opacity={0.55} />
-          <path className="v-pulse" d="M 38 240 A 40 40 0 0 0 38 292" fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="3 5" opacity={0.35} />
+          <circle cx={60} cy={272} r={3} fill="#4ade80" />
+          <path className="v-pulse" d="M 44 256 A 26 26 0 0 0 44 288" fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="3 5" opacity={0.55} />
+          <path className="v-pulse" d="M 30 246 A 40 40 0 0 0 30 298" fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="3 5" opacity={0.35} />
 
-          {/* OTA fin on rear deck + uplink */}
-          <path d="M 646 206 q 10 -12 24 -9 l -4 9 z" fill="#10141b" stroke="#5ea2ff" strokeOpacity={0.8} />
-          <path d="M 660 191 A 18 18 0 0 1 684 181" fill="none" stroke="#5ea2ff" strokeWidth={1.2} opacity={0.7} />
-          <path d="M 666 175 A 30 30 0 0 1 704 161" fill="none" stroke="#5ea2ff" strokeWidth={1.2} opacity={0.45} />
-          <line className="v-dash-slow" x1={690} y1={174} x2={784} y2={58} stroke="#5ea2ff" strokeWidth={1} strokeDasharray="4 7" opacity={0.6} />
-          <g transform="translate(784 50)">
+          {/* OTA fin + uplink */}
+          <path d="M 742 190 q 10 -12 24 -9 l -4 9 z" fill="#10141b" stroke="#5ea2ff" strokeOpacity={0.8} />
+          <path d="M 756 175 A 18 18 0 0 1 780 165" fill="none" stroke="#5ea2ff" strokeWidth={1.2} opacity={0.7} />
+          <path d="M 762 159 A 30 30 0 0 1 800 145" fill="none" stroke="#5ea2ff" strokeWidth={1.2} opacity={0.45} />
+          <line className="v-dash-slow" x1={782} y1={158} x2={828} y2={60} stroke="#5ea2ff" strokeWidth={1} strokeDasharray="4 7" opacity={0.6} />
+          <g transform="translate(828 52)">
             <rect x={-7} y={-6} width={14} height={12} rx={2} fill="#0d1320" stroke="#5ea2ff" />
             <rect x={-22} y={-3} width={12} height={6} fill="#0d1320" stroke="#5ea2ff" strokeOpacity={0.7} />
             <rect x={10} y={-3} width={12} height={6} fill="#0d1320" stroke="#5ea2ff" strokeOpacity={0.7} />
@@ -219,41 +220,51 @@ export function VehicleReveal({ className = "" }: { className?: string }) {
               </text>
             </g>
           ))}
-          <path d="M 300 121 L 406 242" stroke="#5ea2ff" strokeWidth={1} strokeDasharray="3 6" opacity={0.5} />
+          <path d="M 300 121 L 404 240" stroke="#5ea2ff" strokeWidth={1} strokeDasharray="3 6" opacity={0.5} />
         </motion.g>
 
         {/* ===== WHEELS ===== */}
-        <Wheel cx={185} />
-        <Wheel cx={700} />
+        <Wheel cx={224} />
+        <Wheel cx={703} />
 
         {/* ===== BODY SHELL ===== */}
         <motion.g style={{ y: shellY }}>
           <motion.g style={{ opacity: shellOp }}>
             <path d={BODY} fill="url(#v-paint)" stroke="#3a3f4a" strokeWidth={1.5} />
-            {/* roof rim light */}
-            <path d="M 364 186 C 410 172 448 165 476 165 C 508 165 538 172 566 183" fill="none" stroke="#828c9e" strokeWidth={1.6} opacity={0.75} />
-            {/* wedge character line */}
-            <path d="M 90 258 C 220 244 400 236 556 238" fill="none" stroke="#59626f" strokeWidth={1} opacity={0.55} />
-            {/* side air intake */}
-            <path d="M 566 240 L 626 233 L 632 276 L 576 279 Z" fill="url(#v-carbon)" stroke="#1b1f27" strokeWidth={1} opacity={0.95} />
-            <path d="M 571 247 L 623 240" stroke="#2e333d" strokeWidth={2} />
-            <path d="M 574 257 L 627 250" stroke="#2e333d" strokeWidth={2} />
+            {/* fender volume shadows */}
+            <path d="M 172 302 A 55 55 0 0 1 276 302" fill="none" stroke="#0c0e12" strokeWidth={7} opacity={0.65} />
+            <path d="M 651 302 A 55 55 0 0 1 755 302" fill="none" stroke="#0c0e12" strokeWidth={7} opacity={0.65} />
+            {/* rear hip light catch */}
+            <path d="M 634 198 C 676 186 724 184 760 196" fill="none" stroke="#78828f" strokeWidth={1.5} opacity={0.75} />
+            {/* engine deck slats */}
+            <path d="M 626 198 L 646 194 M 652 197 L 672 193 M 678 196 L 698 191" stroke="#12151a" strokeWidth={2.5} />
+            {/* diffuser fins */}
+            <path d="M 788 297 L 790 309 M 808 294 L 810 307 M 828 291 L 830 304" stroke="#2e333d" strokeWidth={2} />
+            {/* windshield/roof rim light */}
+            <path d="M 380 196 C 430 176 470 165 505 163 C 528 161 543 162 552 165" fill="none" stroke="#828c9e" strokeWidth={1.6} opacity={0.75} />
+            {/* rising scissor crease */}
+            <path d="M 108 254 C 250 236 430 246 564 212" fill="none" stroke="#59626f" strokeWidth={1} opacity={0.6} />
+            {/* signature angular side intake */}
+            <path d="M 572 212 L 640 200 L 646 284 L 588 290 Z" fill="url(#v-carbon)" stroke="#1b1f27" strokeWidth={1} opacity={0.96} />
+            <path d="M 580 224 L 636 213" stroke="#2e333d" strokeWidth={2.5} />
+            <path d="M 583 244 L 640 233" stroke="#2e333d" strokeWidth={2.5} />
             <motion.path d={GLASS} fill="url(#v-glass)" style={{ fillOpacity: glassOp }} stroke="#6aa9c9" strokeOpacity={0.5} />
-            <line x1={462} y1={166} x2={470} y2={196} stroke="#12151a" strokeWidth={3} opacity={0.8} />
+            {/* quarter-window divider */}
+            <line x1={514} y1={167} x2={522} y2={190} stroke="#12151a" strokeWidth={3} opacity={0.85} />
             {/* angular door seam */}
-            <path d="M 430 198 L 446 252 L 442 288" fill="none" stroke="#12151a" strokeWidth={1.6} opacity={0.9} />
+            <path d="M 438 200 L 452 252 L 446 300" fill="none" stroke="#12151a" strokeWidth={1.6} opacity={0.9} />
             {/* mirror */}
-            <path d="M 336 206 l -16 -7 q -8 -3 -5 3 l 5 8 z" fill="#20242c" stroke="#3a3f4a" strokeWidth={1} />
+            <path d="M 380 200 l -16 -10 q -9 -4 -6 3 l 6 10 z" fill="#20242c" stroke="#3a3f4a" strokeWidth={1} />
             {/* rocker / splitter / diffuser carbon */}
-            <path d="M 252 284 L 630 284 L 632 292 L 250 292 Z" fill="url(#v-carbon)" opacity={0.9} />
-            <path d="M 54 283 L 118 279 L 120 292 L 58 294 Z" fill="url(#v-carbon)" opacity={0.95} />
-            <path d="M 768 282 L 800 270 L 798 288 L 770 292 Z" fill="url(#v-carbon)" opacity={0.95} />
-            {/* angular DRL slash */}
-            <path d="M 66 258 L 122 246" stroke="#7cd2ff" strokeWidth={3} strokeLinecap="round" filter="url(#v-glowB)" />
-            {/* rear light blade */}
-            <path d="M 803 228 L 796 254" stroke="#4ade80" strokeWidth={3} strokeLinecap="round" filter="url(#v-glowG)" />
-            {/* ducktail lip highlight */}
-            <path d="M 786 220 L 800 216" stroke="#828c9e" strokeWidth={1.5} opacity={0.8} />
+            <path d="M 286 302 L 642 302 L 644 310 L 284 310 Z" fill="url(#v-carbon)" opacity={0.9} />
+            <path d="M 48 296 L 142 302 L 144 312 L 52 308 Z" fill="url(#v-carbon)" opacity={0.95} />
+            <path d="M 766 300 L 846 288 L 842 306 L 772 312 Z" fill="url(#v-carbon)" opacity={0.95} />
+            {/* DRL slash */}
+            <path d="M 58 272 L 110 258" stroke="#7cd2ff" strokeWidth={3} strokeLinecap="round" filter="url(#v-glowB)" />
+            {/* tail light blade */}
+            <path d="M 851 218 L 845 246" stroke="#4ade80" strokeWidth={3} strokeLinecap="round" filter="url(#v-glowG)" />
+            {/* ducktail lip */}
+            <path d="M 830 200 L 852 208" stroke="#828c9e" strokeWidth={1.5} opacity={0.8} />
           </motion.g>
           {/* holographic wireframe twin */}
           <motion.g style={{ opacity: wireOp }}>
@@ -264,17 +275,17 @@ export function VehicleReveal({ className = "" }: { className?: string }) {
 
         {/* ===== ENGINEERING CALLOUTS ===== */}
         <motion.g style={{ opacity: labelsOp }} fontFamily="var(--font-mono)" fontSize={10} letterSpacing={1.5}>
-          <line x1={312} y1={240} x2={240} y2={202} stroke="#4ade80" strokeWidth={0.8} opacity={0.6} />
-          <text x={130} y={196} fill="#7de8a8">ECU MODULES</text>
-          <line x1={452} y1={280} x2={452} y2={382} stroke="#5ea2ff" strokeWidth={0.8} opacity={0.5} />
-          <text x={404} y={398} fill="#8db9f5">CENTRAL COMPUTE</text>
-          <line x1={586} y1={264} x2={682} y2={234} stroke="#4ade80" strokeWidth={0.8} opacity={0.6} />
-          <text x={686} y={230} fill="#7de8a8">CAN / AUTOMOTIVE ETHERNET</text>
-          <text x={742} y={36} fill="#8db9f5">OTA UPLINK</text>
-          <line x1={330} y1={316} x2={252} y2={352} stroke="#4ade80" strokeWidth={0.8} opacity={0.5} />
-          <text x={122} y={366} fill="#7de8a8">BATTERY PLATFORM</text>
-          <line x1={462} y1={148} x2={508} y2={108} stroke="#4ade80" strokeWidth={0.8} opacity={0.6} />
-          <text x={514} y={104} fill="#7de8a8">SENSOR ARRAY</text>
+          <line x1={310} y1={240} x2={238} y2={204} stroke="#4ade80" strokeWidth={0.8} opacity={0.6} />
+          <text x={128} y={198} fill="#7de8a8">ECU MODULES</text>
+          <line x1={451} y1={280} x2={451} y2={382} stroke="#5ea2ff" strokeWidth={0.8} opacity={0.5} />
+          <text x={403} y={398} fill="#8db9f5">CENTRAL COMPUTE</text>
+          <line x1={620} y1={262} x2={700} y2={230} stroke="#4ade80" strokeWidth={0.8} opacity={0.6} />
+          <text x={704} y={226} fill="#7de8a8">CAN / AUTOMOTIVE ETHERNET</text>
+          <text x={786} y={38} fill="#8db9f5">OTA UPLINK</text>
+          <line x1={340} y1={316} x2={258} y2={354} stroke="#4ade80" strokeWidth={0.8} opacity={0.5} />
+          <text x={128} y={368} fill="#7de8a8">BATTERY PLATFORM</text>
+          <line x1={528} y1={150} x2={566} y2={108} stroke="#4ade80" strokeWidth={0.8} opacity={0.6} />
+          <text x={572} y={104} fill="#7de8a8">SENSOR ARRAY</text>
         </motion.g>
       </svg>
     </motion.div>
