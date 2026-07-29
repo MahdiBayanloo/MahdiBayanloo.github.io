@@ -12,6 +12,9 @@ export function About() {
             <br />
             {about.arc}
           </p>
+          <p className="tag-mono mt-6 text-dim opacity-60">
+            also written: Mehdi Bayanloo · مهدی بیانلو
+          </p>
         </div>
         <div className="rounded-2xl border border-line bg-surface p-7 self-start">
           <h3 className="tag-mono text-signal">Languages</h3>
