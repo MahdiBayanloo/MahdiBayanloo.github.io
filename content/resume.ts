@@ -140,6 +140,20 @@ export const experience: Experience[] = [
 
 export const projects: Project[] = [
   {
+    slug: "spatial-air-quality-traffic",
+    name: "Spatial Analysis of Air Quality & Traffic Patterns in German Cities",
+    kicker: "FU Berlin · Spatial Databases (Prof. Agnès Voisard) · 2026",
+    problem:
+      "Where does poor urban air quality actually coincide with traffic congestion — and can raw traffic and sensor data answer that at district level?",
+    built:
+      "A unified spatial data pipeline in PostgreSQL/PostGIS joining TomTom road-traffic data with OpenAQ air-quality sensor measurements. Multi-layer interactive maps (Leaflet/OpenStreetMap) of Berlin, Hamburg, Munich, Cologne, Frankfurt and Stuttgart: district-level AQI polygons, 2,000+ individual sensor points, and traffic hotspots. Correlation analysis showed ~90% of severe PM2.5 readings coincide with high-congestion zones. Team of three.",
+    stack: ["PostgreSQL", "PostGIS", "Spatial Queries", "TomTom Traffic API", "OpenAQ", "Leaflet"],
+    link: {
+      label: "View on LinkedIn",
+      href: "https://www.linkedin.com/posts/mahdi-bayanloo-2b7317215_spatial-analysis-of-air-quality-traffic-activity-7425275601516789760-f-V1",
+    },
+  },
+  {
     slug: "iot-demo-kit",
     name: "Plug-and-Play IoT Demonstration Kit",
     kicker: "Industrial IoT · 2026",
