@@ -105,7 +105,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-bg font-sans text-fg">
         <a
-          href="#projects"
+          href="#work"
           className="absolute left-4 top-4 z-[100] -translate-y-20 rounded-md bg-signal px-4 py-2 font-medium text-bg transition-transform focus:translate-y-0"
         >
           Skip to content

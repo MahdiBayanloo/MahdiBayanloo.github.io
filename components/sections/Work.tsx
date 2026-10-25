@@ -8,7 +8,7 @@ import { experience } from "@/content/resume";
  */
 export function Work() {
   return (
-    <Section id="work" index="02" title="Experience">
+    <Section id="work" index="01" title="Work Experience">
       <ol className="relative ml-2 border-l border-line md:ml-4">
         <SpineProgress />
         {experience.map((job) => (

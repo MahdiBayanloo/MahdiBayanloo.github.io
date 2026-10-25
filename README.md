@@ -36,6 +36,7 @@ The previous site is preserved under [`legacy/`](legacy/).
 
 - RV Tech internship: July–September 2026 (completed at the end of September).
 - M.Sc. Computational Sciences: current study, expected enrolment through 2028.
-- New public projects: [AI optimization pipeline](https://github.com/MahdiBayanloo/ai-optimization-pipeline) and [braking-event processing](https://github.com/MahdiBayanloo/braking-events).
+- Section order: Work Experience, Selected Projects, Skills, Education, About, Contact. Keep experience ahead of projects.
+- Public projects include the [vehicle assistant validation lab](https://github.com/MahdiBayanloo/vehicle-assistant-validation-lab), [AI optimization pipeline](https://github.com/MahdiBayanloo/ai-optimization-pipeline), and [braking-event processing](https://github.com/MahdiBayanloo/braking-events).
 - The robotic arm is an original conceptual illustration, not a specific project or employer product.
 - Keep simulated benchmark results distinct from hardware measurements and future work distinct from completed work.

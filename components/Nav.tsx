@@ -5,8 +5,8 @@ import { Monogram } from "@/components/svg/Monogram";
 import { identity } from "@/content/resume";
 
 const LINKS = [
-  { href: "#projects", label: "Projects" },
   { href: "#work", label: "Experience" },
+  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },

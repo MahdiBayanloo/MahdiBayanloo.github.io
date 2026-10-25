@@ -25,6 +25,8 @@ export type Project = {
   built: string;
   stack: string[];
   link?: { label: string; href: string };
+  evidence?: { label: string; href: string };
+  featured?: boolean;
   note?: string;
 };
 
@@ -137,6 +139,27 @@ export const experience: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "vehicle-assistant-validation-lab",
+    name: "Vehicle Assistant Validation Lab",
+    kicker: "Independent engineering lab · Oct 2026",
+    featured: true,
+    problem:
+      "How can assistant tools, stored preferences, and scenario checks be tested against explicit contracts before connecting them to real systems?",
+    built:
+      "Implemented a Python lab combining budget-aware test selection, a simulated vehicle backend with token, scope, and ownership checks, idempotent writes, and SQLite memory with provenance and per-user isolation. Added structural and semantic checks for a defined OpenSCENARIO 1.2 XML subset, an official-SDK MCP stdio tool adapter, 29 automated tests, and reproducible JSON/XML benchmark reports.",
+    note:
+      "Local proof of concept using synthetic fixtures and a simulated backend. Scenario checks cover a restricted subset; production OAuth, live-model evaluation, and simulator execution remain future work.",
+    stack: ["Python", "MCP SDK", "HTTP / JSON", "Authorization", "SQLite", "OpenSCENARIO", "Test Selection"],
+    link: {
+      label: "Explore GitHub repository",
+      href: "https://github.com/MahdiBayanloo/vehicle-assistant-validation-lab",
+    },
+    evidence: {
+      label: "Read benchmark evidence",
+      href: "https://github.com/MahdiBayanloo/vehicle-assistant-validation-lab/blob/main/reports/latest/BENCHMARK.md",
+    },
+  },
   {
     slug: "ai-optimization-pipeline",
     name: "Multi-Agent Firmware Optimization Pipeline",
