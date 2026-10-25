@@ -7,7 +7,7 @@ export function Contact() {
       <div className="grid gap-10 md:grid-cols-2">
         <div>
           <p className="font-display max-w-md text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            Let&apos;s build something that proves itself.
+            Got something interesting in mind?
           </p>
           <ul className="mt-8 space-y-3">
             <li>
@@ -39,7 +39,6 @@ export function Contact() {
               </a>
             </li>
             <li className="tag-mono pt-2 text-dim">{identity.location}</li>
-            <li className="font-mono text-xs text-signal">{identity.availability}</li>
           </ul>
         </div>
 

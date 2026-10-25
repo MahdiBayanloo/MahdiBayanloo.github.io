@@ -23,10 +23,9 @@ export function Hero() {
                 <span key={part}>{part}{i < arr.length - 1 && <span className="mx-2 text-signal">/</span>}</span>
               ))}
             </p>
-            <p className="mt-5 font-mono text-xs text-signal">{identity.availability}</p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a href="#projects" className="rounded-full bg-signal px-6 py-3 font-medium text-bg transition-transform duration-200 hover:-translate-y-0.5">Explore my work</a>
-              <a href={identity.links.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-full border border-line px-6 py-3 font-medium text-fg transition-colors duration-200 hover:border-dim">LinkedIn ↗</a>
+              <a href="#projects" className="rounded-full bg-signal px-6 py-3 font-medium text-bg transition-transform duration-200 hover:-translate-y-0.5">Explore my projects</a>
+              <a href={identity.links.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-line px-6 py-3 font-medium text-fg transition-colors duration-200 hover:border-dim">GitHub ↗</a>
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-3xl">

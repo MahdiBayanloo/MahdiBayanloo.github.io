@@ -34,6 +34,7 @@ The previous site is preserved under [`legacy/`](legacy/).
 
 ## Content maintenance
 
+- This is a personal website for friends, fellow builders, and anyone curious—not a job-search landing page. Keep the introduction focused on Mahdi's interests and personality. Do not publish availability, weekly working hours, or job-seeking messages.
 - RV Tech internship: July–September 2026 (completed at the end of September).
 - M.Sc. Computational Sciences: current study, expected enrolment through 2028.
 - Section order: Work Experience, Selected Projects, Skills, Education, About, Contact. Keep experience ahead of projects.

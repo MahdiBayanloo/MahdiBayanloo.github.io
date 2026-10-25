@@ -34,15 +34,14 @@ export const identity = {
   name: "Mahdi Bayanloo",
   role: "AI, Robotics & Embedded Software",
   location: "Berlin, Germany",
-  headline: "From intelligent ideas to working systems",
+  headline: "Curiosity keeps me building.",
   tagline:
-    "AI & Machine Learning | Robotics | Embedded Software | Data & Automation",
+    "Robotics | AI | Code | Curiosity",
   message:
     "Sense. Reason. Act. Test. The interesting part is making it all work together.",
   subline:
-    "Berlin-based engineer and Computational Sciences master's student connecting AI, robotics, embedded systems, and reproducible evaluation.",
+    "I'm into robots, AI, and making ideas do something in the real world. Sometimes that means code. Sometimes it means a robot fight.",
   email: "mahdibayanloo1379@gmail.com",
-  availability: "Available immediately · 20 hours/week",
   // Keep phone and role-specific CVs off the public site.
   links: {
     linkedin: "https://www.linkedin.com/in/mahdi-bayanloo-2b7317215/",
@@ -338,7 +337,7 @@ export const languages = [
 export const about = {
   // Personal context, kept distinct from professional project claims.
   paragraph:
-    "I'm an engineer in Berlin who likes working where software meets the real world. My experience connects embedded firmware, robotics research, vehicle-software validation, and AI-assisted engineering. I'm studying Computational Sciences at Freie Universität Berlin, bringing computer science, applied mathematics, and physics into the same toolbox. My RV Tech internship finished at the end of September 2026; I'm now looking for my next working-student opportunity in AI, data, robotics, or software engineering.",
+    "I'm Mahdi, based in Berlin. I'm fascinated by what happens when code meets the physical world: a robot moving, a sensor making sense of its surroundings, or an AI idea becoming something I can actually test. I study Computational Sciences at Freie Universität Berlin, where I get to work across computer science, applied mathematics, and physics.",
   arc: "Teaching programming → robotics team leadership → embedded systems → research & sensor data → AI-assisted firmware → software integration.",
   interests: "Outside work: building combat robots with my team, motorcycle riding, and guitar. I like projects that give me something to figure out—and something to build.",
 };
