@@ -34,9 +34,12 @@ export const metadata: Metadata = {
     "Bayanloo",
     "مهدی بیانلو",
     "Software Integration Engineer Berlin",
-    "OTA Systems Engineer",
+    "AI Engineering",
+    "Machine Learning",
+    "Robotics",
+    "Computational Sciences",
     "Embedded Software Engineer Berlin",
-    "Vehicle Software Engineer",
+    "Data Science",
   ],
   authors: [{ name: identity.name, url: SITE_URL }],
   creator: identity.name,
@@ -66,14 +69,16 @@ const personJsonLd = {
   "@type": "Person",
   name: identity.name,
   alternateName: ["Mehdi Bayanloo", "Mahdi Bayanlou", "Mehdi Bayanlou", "مهدی بیانلو"],
-  jobTitle: "Software Integration Engineer",
-  worksFor: { "@type": "Organization", name: "Rivian and Volkswagen Group Technologies" },
+  jobTitle: identity.role,
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "Freie Universität Berlin" },
     { "@type": "CollegeOrUniversity", name: "University of Zanjan" },
   ],
   knowsAbout: [
-    "OTA Systems",
+    "Machine Learning",
+    "Robotics",
+    "Agent Orchestration",
+    "Data Analysis",
     "Embedded Software",
     "ECU Integration",
     "Hardware-in-the-Loop Testing",
@@ -100,7 +105,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-bg font-sans text-fg">
         <a
-          href="#work"
+          href="#projects"
           className="absolute left-4 top-4 z-[100] -translate-y-20 rounded-md bg-signal px-4 py-2 font-medium text-bg transition-transform focus:translate-y-0"
         >
           Skip to content

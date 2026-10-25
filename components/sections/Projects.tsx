@@ -4,7 +4,7 @@ import { projects } from "@/content/resume";
 /** Case-study cards: problem → built → stack. No thumbnails, no iframes. */
 export function Projects() {
   return (
-    <Section id="projects" index="02" title="Selected Projects">
+    <Section id="projects" index="01" title="Selected Projects">
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p) => (
           <article
@@ -24,6 +24,10 @@ export function Projects() {
                 <dd className="text-dim">{p.built}</dd>
               </div>
             </dl>
+
+            {p.note && (
+              <p className="mt-4 border-l-2 border-amber/60 pl-3 text-xs leading-relaxed text-dim">{p.note}</p>
+            )}
 
             <div className="mt-auto pt-5">
               <ul className="flex flex-wrap gap-2">

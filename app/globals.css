@@ -95,7 +95,7 @@ body {
   background: var(--amber);
 }
 
-/* Vehicle reveal — data-flow animations (killed globally by reduced-motion) */
+/* Robotics concept — data-flow animations (disabled by reduced-motion) */
 .v-dash {
   animation: v-dash-flow 1.1s linear infinite;
 }

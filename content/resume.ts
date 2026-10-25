@@ -1,8 +1,7 @@
 /**
  * Single source of truth for all site copy and data.
- * Mirrors the CV (`Mahdi Bayanloo RivianVW CV`) + user-supplied RV Tech details.
- * RULE: nothing appears here that Mahdi hasn't verified. TODO(intake) items
- * are placeholders that MUST be resolved with him before Phase 2 ships.
+ * Updated October 2026 from Mahdi's confirmed history and public project code.
+ * Keep prototypes, mock benchmarks, and completed employment clearly qualified.
  */
 
 export type Experience = {
@@ -26,21 +25,23 @@ export type Project = {
   built: string;
   stack: string[];
   link?: { label: string; href: string };
+  note?: string;
 };
 
 export const identity = {
   name: "Mahdi Bayanloo",
-  role: "Software Integration Engineer — Vehicle OTA & Embedded Test",
+  role: "AI, Robotics & Embedded Software",
   location: "Berlin, Germany",
-  headline: "Building the Software Behind Future Vehicles", // confirmed by Mahdi
+  headline: "From intelligent ideas to working systems",
   tagline:
-    "Software Integration Engineer | OTA Systems | Embedded Software | Vehicle Intelligence",
+    "AI & Machine Learning | Robotics | Embedded Software | Data & Automation",
   message:
-    "Modern vehicles are no longer only machines. They are intelligent software platforms.",
+    "Sense. Reason. Act. Test. The interesting part is making it all work together.",
   subline:
-    "Software integration engineer for vehicle OTA and embedded systems — ECUs, hardware-in-the-loop validation, test automation. Berlin.",
+    "Berlin-based engineer and Computational Sciences master's student connecting AI, robotics, embedded systems, and reproducible evaluation.",
   email: "mahdibayanloo1379@gmail.com",
-  // No phone, no CV download on the site — confirmed by Mahdi (LinkedIn only)
+  availability: "Available immediately · 20 hours/week",
+  // Keep phone and role-specific CVs off the public site.
   links: {
     linkedin: "https://www.linkedin.com/in/mahdi-bayanloo-2b7317215/",
     github: "https://github.com/mahdibayanloo",
@@ -49,7 +50,7 @@ export const identity = {
 
 /** Employer/institution proof strip, in scan order */
 export const proof = [
-  "Rivian and Volkswagen Group Technologies",
+  "RV Tech",
   "Perinet",
   "Zuse Institute Berlin · BMW AutoRun",
   "Holoplot",
@@ -58,35 +59,32 @@ export const proof = [
 
 export const experience: Experience[] = [
   {
-    // Confirmed by Mahdi 2026-07-26. Confidentiality: describe ECU/OTA work
-    // only — do NOT name specific vehicle brands (no "Audi").
-    company: "Rivian and Volkswagen Group Technologies",
-    title: "Software Integration Engineer — OTA",
+    // Completed internship; retain high-level descriptions of internal work.
+    company: "RV Tech",
+    title: "Software Integration Engineer — OTA (Intern)",
     start: "Jul 2026",
-    end: "Present",
+    end: "Sep 2026",
     location: "Berlin",
-    current: true,
-    highlight: true,
     bullets: [
-      "Integrate over-the-air update software for production vehicle ECUs.",
-      "Maintain and extend HIL test setups; update code and OTA update recipes.",
-      "Write and integrate new signal logs; analyze signal-log data across ECU platforms.",
+      "Integrated over-the-air update software for vehicle ECUs; supported hardware- and software-in-the-loop validation.",
+      "Maintained HIL test setups, Python test tooling, update recipes, and GitLab CI workflows with firmware and integration engineers.",
+      "Added signal logging and analyzed test data across ECU platforms; used Claude and LLM-assisted workflows to prepare engineering documentation in Confluence.",
     ],
-    tags: ["Python", "C++", "Linux", "HIL", "OTA", "ECU"],
+    tags: ["Python", "C++", "HIL / SIL", "OTA", "GitLab CI", "Confluence"],
   },
   {
     company: "Perinet GmbH",
-    title: "Electronics Engineer (Working Student)",
+    title: "Embedded Software Engineer (Working Student)",
     start: "May 2025",
-    end: "2026", // ended per Mahdi — TODO: exact end month
+    end: "Jul 2026",
     location: "Berlin",
     bullets: [
       "Wrote automated tests in Python and validated embedded firmware on STM32; debugged hardware–software integration across signal-processing and communication layers.",
       "Validated Automotive Ethernet (100BASE-T1, SPE) communication stacks using VNA and oscilloscopes with high-frequency signal analysis — directly applicable to in-vehicle network testing.",
-      "Developed RTOS C/C++ firmware (USART, SPE stacks); authored manufacturing and test documentation in LaTeX.",
-      "Built an agentic AI pipeline (RAG + agent orchestration) to analyze and restructure RTOS firmware; presented technical evaluation internally.",
+      "Developed STM32 C/C++ firmware for preemptive and cooperative RTOS systems, including interrupts and communication interfaces; authored engineering and manufacturing documentation in LaTeX.",
+      "Prototyped an LLM workflow for firmware analysis and restructuring using task-specific code and architecture context, separate review roles, and bounded repair; presented the work internally with HTML and PowerPoint.",
     ],
-    tags: ["Python", "C/C++", "STM32", "RTOS", "100BASE-T1", "VNA", "RAG"],
+    tags: ["Python", "C/C++", "STM32", "RTOS", "LLM Workflows", "LaTeX"],
   },
   {
     company: "Zuse Institute Berlin",
@@ -95,9 +93,9 @@ export const experience: Experience[] = [
     end: "May 2025",
     location: "Berlin",
     bullets: [
-      "Engineered ROS-based multi-sensor data acquisition pipelines (LiDAR, IMU, CAN) on a real vehicle platform; synchronized heterogeneous streams via sensor fusion.",
+      "Built ROS2 data acquisition and synchronization workflows for LiDAR, IMU, and CAN on the BMW AutoRun research platform.",
       "Built Python automation tooling with NumPy and Pandas for test-data analysis; created dashboards and visualizations for validation runs.",
-      "Managed large demonstration datasets and CI-style reproducible test workflows for autonomous-driving research.",
+      "Worked on Python replay and simulation tooling, CAN-based actuation, and reproducible validation of research data.",
     ],
     tags: ["ROS", "LiDAR", "CAN", "Python", "Sensor Fusion"],
   },
@@ -108,7 +106,7 @@ export const experience: Experience[] = [
     end: "Oct 2023",
     location: "Zanjan",
     bullets: [
-      "Developed a full ROS autonomy stack (OOP C++ & Python) for competitive robotics; team achieved top placement in the Pathfinder competition.",
+      "Developed ROS-based autonomy software in C++ and Python for UAV and navigation projects, connecting sensing, control, and embedded hardware.",
       "Assembled robotic hardware end-to-end; debugged hardware–software integration across sensors, actuators, and embedded controllers.",
       "Mentored 20+ students in robotics software development, Git workflows, and system testing.",
     ],
@@ -140,13 +138,37 @@ export const experience: Experience[] = [
 
 export const projects: Project[] = [
   {
+    slug: "ai-optimization-pipeline",
+    name: "Multi-Agent Firmware Optimization Pipeline",
+    kicker: "LLM engineering prototype · Apr–May 2026",
+    problem:
+      "How can an LLM propose firmware changes while keeping architecture constraints, behavior review, and an inspectable record of each step?",
+    built:
+      "Built a Python orchestrator using the Anthropic SDK with six roles: planner, generator, architecture reviewer, behavior reviewer, repair agent, and test designer. It assembles task-specific code and documentation context, limits repair iterations to three, and records prompts, responses, and token usage in JSONL. Includes a C++ timing harness comparing simulated blocking and non-blocking communication.",
+    note:
+      "Prototype scope: timing results come from a mock harness. Generated patches still require build, hardware integration, and validation; this is not a measured hardware speedup.",
+    stack: ["Python", "Anthropic SDK", "Context Engineering", "Agent Orchestration", "JSONL", "C++"],
+    link: { label: "Explore source & run artifacts", href: "https://github.com/MahdiBayanloo/ai-optimization-pipeline" },
+  },
+  {
+    slug: "braking-events",
+    name: "Telemetry Resampling & Braking-Event Detection",
+    kicker: "Python data-processing project · 2026",
+    problem:
+      "Irregular timestamps and missing measurements make it difficult to identify sustained events consistently in sensor logs.",
+    built:
+      "Implemented a Pandas pipeline that aligns telemetry to an exact 10 Hz grid, interpolates continuous speed values, and forward-fills the discrete brake state. It extracts braking intervals lasting at least 0.5 seconds and reports their start, end, sampled duration, and speed drop. Three focused tests cover interpolation, discrete-state preservation, and event thresholds.",
+    stack: ["Python", "Pandas", "Time Series", "Signal Processing", "pytest"],
+    link: { label: "Read implementation & tests", href: "https://github.com/MahdiBayanloo/braking-events" },
+  },
+  {
     slug: "spatial-air-quality-traffic",
     name: "Spatial Analysis of Air Quality & Traffic Patterns in German Cities",
     kicker: "FU Berlin · Spatial Databases (Prof. Agnès Voisard) · 2026",
     problem:
       "Where does poor urban air quality actually coincide with traffic congestion — and can raw traffic and sensor data answer that at district level?",
     built:
-      "A unified spatial data pipeline in PostgreSQL/PostGIS joining TomTom road-traffic data with OpenAQ air-quality sensor measurements. Multi-layer interactive maps (Leaflet/OpenStreetMap) of Berlin, Hamburg, Munich, Cologne, Frankfurt and Stuttgart: district-level AQI polygons, 2,000+ individual sensor points, and traffic hotspots. Correlation analysis showed ~90% of severe PM2.5 readings coincide with high-congestion zones. Team of three.",
+      "A unified spatial data pipeline in PostgreSQL/PostGIS joining TomTom road-traffic data with OpenAQ air-quality sensor measurements. Multi-layer interactive maps (Leaflet/OpenStreetMap) of Berlin, Hamburg, Munich, Cologne, Frankfurt and Stuttgart: district-level AQI polygons, 2,000+ individual sensor points, and traffic hotspots. Spatial queries and visualizations support investigation of relationships between congestion and air quality. Team of three.",
     stack: ["PostgreSQL", "PostGIS", "Spatial Queries", "TomTom Traffic API", "OpenAQ", "Leaflet"],
     link: {
       label: "View on LinkedIn",
@@ -180,7 +202,7 @@ export const projects: Project[] = [
   {
     slug: "jenkins-hil",
     name: "Jenkins CI/CD Pipeline for Embedded Systems",
-    kicker: "Holoplot · Dec 2024",
+    kicker: "HOLOPLOT · Dec 2024–Jan 2025",
     problem:
       "Embedded software validation was manual — no automated path from commit to verified hardware behavior.",
     built:
@@ -212,67 +234,52 @@ export const projects: Project[] = [
     problem:
       "How robust are LLM judges — and can structured strategies systematically shift their verdicts?",
     built:
-      "An evaluation pipeline with LLMs and RAG; analyzed model behavior across structured test datasets and developed strategies maximizing disagreement among LLM judges.",
-    stack: ["Python", "LLMs", "RAG", "Jupyter"],
-    link: {
-      label: "GitHub",
-      href: "https://github.com/MahdiBayanloo/LLM-as-a-Judge",
-    },
+      "Collaborated with a 20-researcher team at Experience Cafe on a Kaggle competition investigating disagreement among LLM judges. Researched model robustness, subjective evaluation, and exploit strategies; contributed code and essay-submission experiments.",
+    stack: ["Python", "LLMs", "Evaluation", "Robustness", "Kaggle"],
   },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
   {
-    group: "Embedded & Vehicle Systems",
-    items: [
-      "STM32",
-      "Raspberry Pi",
-      "Arduino",
-      "RTOS",
-      "Automotive Ethernet",
-      "100BASE-T1 / SPE",
-      "CAN",
-      "Altium",
-      "VNA",
-      "Oscilloscope",
-    ],
-  },
-  {
-    group: "DevOps & Test",
-    items: ["Jenkins", "CI/CD", "Git", "Gradle", "Docker", "Linux", "HIL Testing"],
+    group: "AI & Machine Learning",
+    items: ["PyTorch", "TensorFlow", "Generative Models", "LLMs", "Anthropic SDK", "RAG", "Agent Workflows", "Model Evaluation"],
   },
   {
     group: "Programming & Automation",
-    items: ["Python", "C/C++", "Java", "OOP", "Bash", "Groovy"],
+    items: ["Python", "C/C++", "Java", "JavaScript / TypeScript", "Bash", "Groovy", "Git", "Linux"],
   },
   {
-    group: "Robotics & Sensors",
-    items: ["ROS / ROS2", "LiDAR", "IMU", "Sensor Fusion", "Computer Vision", "OpenCV"],
-  },
-  {
-    group: "AI / ML",
-    items: ["PyTorch", "Deep Learning", "LLMs", "LangChain", "RAG"],
+    group: "Robotics & Embedded Systems",
+    items: ["ROS / ROS2", "STM32", "RTOS", "LiDAR / IMU", "Sensor Synchronization", "CAN", "MATLAB / Simulink", "OpenCV"],
   },
   {
     group: "Data & Visualization",
-    items: ["NumPy", "Pandas", "Matplotlib", "Dashboarding", "Test Reporting"],
+    items: ["SQL", "PostgreSQL / PostGIS", "Pandas", "NumPy", "Matplotlib", "Leaflet", "Geospatial Analysis", "Time Series"],
+  },
+  {
+    group: "Testing & Infrastructure",
+    items: ["Jenkins", "GitLab CI", "HIL / SIL", "Docker", "Gradle", "AWS S3 / Lambda", "Kubernetes"],
+  },
+  {
+    group: "APIs & Technical Communication",
+    items: ["REST", "GraphQL", "JSON / JSONL", "Confluence", "LaTeX", "HTML", "PowerPoint", "Technical Presentations"],
   },
 ];
 
 export const education = [
   {
     school: "Freie Universität Berlin",
-    degree: "M.Sc. Computer Science",
-    period: "Oct 2024 – 2026",
-    stat: { value: "1.3", label: "GPA (1.0 highest)" },
-    detail: "Coursework: Machine Learning, Robotics, Computer Vision, Algorithms.",
+    degree: "M.Sc. Computational Sciences",
+    period: "Oct 2024 – Present · expected enrolment through 2028",
+    stat: { value: "1.3", label: "Current grade · German scale" },
+    detail: "Computer science, applied mathematics, and physics. Passed coursework includes machine learning methods and evaluation, robotics/navigation, statistical physics, and a seminar on function-space ML, operator learning, and inverse problems. German grading scale: 1.0 is the highest grade.",
   },
   {
     school: "University of Zanjan",
     degree: "B.Sc. Electrical Engineering (Embedded Systems)",
     period: "Sep 2019 – Sep 2023",
     stat: { value: "1st", label: "Rank in cohort" },
-    detail: "GPA 1.7.",
+    detail: "Grade: 1.7 on the German grading scale (1.0 highest). Focus on embedded systems; CNN-based face-recognition thesis.",
   },
 ];
 
@@ -293,8 +300,8 @@ export const certifications = [
   {
     name: "Machine Learning Certificate",
     issuer: "IEEE",
-    date: "Nov 2022",
-    image: null, // TODO(intake): no scan in repo — ask Mahdi for it
+    date: "Nov 2020",
+    image: null,
   },
 ];
 
@@ -306,8 +313,9 @@ export const languages = [
 ];
 
 export const about = {
-  // TODO(intake): refine with Mahdi during Phase 2 copy pass
+  // Personal context, kept distinct from professional project claims.
   paragraph:
-    "I'm an embedded software and test-automation engineer in Berlin. My work spans the full vehicle software stack — from STM32 firmware and Automotive Ethernet validation to ROS sensor pipelines on real autonomous-driving platforms, and now over-the-air updates for production ECUs. Alongside, I'm finishing an M.Sc. in Computer Science at FU Berlin.",
-  arc: "Teaching OOP → robotics team lead → embedded intern → autonomous-driving research → automotive Ethernet validation → vehicle OTA integration.",
+    "I'm an engineer in Berlin who likes working where software meets the real world. My experience connects embedded firmware, robotics research, vehicle-software validation, and AI-assisted engineering. I'm studying Computational Sciences at Freie Universität Berlin, bringing computer science, applied mathematics, and physics into the same toolbox. My RV Tech internship finished at the end of September 2026; I'm now looking for my next working-student opportunity in AI, data, robotics, or software engineering.",
+  arc: "Teaching programming → robotics team leadership → embedded systems → research & sensor data → AI-assisted firmware → software integration.",
+  interests: "Outside work: building combat robots with my team, motorcycle riding, and guitar. I like projects that give me something to figure out—and something to build.",
 };

@@ -62,7 +62,8 @@ export function ScopeTrace({ className = "" }: { className?: string }) {
       ctx.beginPath();
       for (let x = 0; x <= w; x += 2) {
         const y = mid + sample(x, w, t) * amp;
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
       }
       ctx.strokeStyle = "#4ade80";
       ctx.lineWidth = 1.5;

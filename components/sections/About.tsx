@@ -7,6 +7,7 @@ export function About() {
       <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
         <div>
           <p className="max-w-2xl text-lg leading-relaxed text-dim">{about.paragraph}</p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-dim">{about.interests}</p>
           <p className="tag-mono mt-8 leading-loose text-dim">
             <span className="text-signal">$ career --trace</span>
             <br />

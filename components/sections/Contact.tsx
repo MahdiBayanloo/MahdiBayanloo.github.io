@@ -39,6 +39,7 @@ export function Contact() {
               </a>
             </li>
             <li className="tag-mono pt-2 text-dim">{identity.location}</li>
+            <li className="font-mono text-xs text-signal">{identity.availability}</li>
           </ul>
         </div>
 
